@@ -1,0 +1,7 @@
+{
+  "name": "pacial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
