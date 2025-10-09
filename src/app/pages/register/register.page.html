@@ -26,9 +26,33 @@
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Año de nacimiento</ion-label>
+        <ion-datetime display-format="YYYY" picker-format="YYYY" [(ngModel)]="birthDate" name="birthDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>País</ion-label>
+        <ion-input [(ngModel)]="country" name="country"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Ciudad</ion-label>
+        <ion-input [(ngModel)]="city" name="city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Género</ion-label>
+        <ion-select [(ngModel)]="gender" name="gender" required>
+          <ion-select-option value="female">Femenino</ion-select-option>
+          <ion-select-option value="male">Masculino</ion-select-option>
+        </ion-select>
+      </ion-item>
     </ion-list>
 
-    <ion-button expand="block" type="submit" [disabled]="!name || !lastName || !email || !password">
+    <ion-button expand="block" type="submit"
+      [disabled]="!name || !lastName || !email || !password">
       Registrarse
     </ion-button>
 
