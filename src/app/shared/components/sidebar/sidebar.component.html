@@ -1,0 +1,30 @@
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <app-list
+      [items]="menuItems"
+      (itemSelected)="handleAction($event)">
+    </app-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Noticias</ion-title>
+
+      <ion-buttons slot="end">
+        <ion-menu-button menu="end"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ng-content></ng-content>
+  </ion-content>
+</div>

@@ -1,0 +1,16 @@
+<ion-item>
+  <ion-label [position]="floating ? 'floating' : 'stacked'">
+    {{ label }}
+  </ion-label>
+  <ion-input
+    [type]="inputType"
+    [value]="model"
+    [name]="name"
+    [required]="required"
+    (ionInput)="onInputChange($event)">
+  </ion-input>
+
+  <ion-button *ngIf="type === 'password'" fill="clear" slot="end" (click)="togglePassword()">
+    <ion-icon [name]="showPassword ? 'eye-off' : 'eye'"></ion-icon>
+  </ion-button>
+</ion-item>
