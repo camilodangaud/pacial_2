@@ -6,15 +6,19 @@ export interface IFirebasePlugin {
     lastName: string;
     email: string;
     password: string;
+    birthDate?: string;
     country?: string;
     city?: string;
     gender?: string;
-  }): Promise<{ success: boolean; message?: string }>;
+    showGenderProfile?: boolean;
+    passions?: { category: string }[];
+    photos?: string[];
+  }): Promise<{ success: boolean; uid?: string; message?: string }>;
 
   loginUser(credentials: {
     email: string;
     password: string;
-  }): Promise<{ success: boolean; token?: string; message?: string }>;
+  }): Promise<{ success: boolean; uid?: string; email?: string; message?: string }>;
 }
 
 const FirebasePlugin = registerPlugin<IFirebasePlugin>('FirebasePlugin');

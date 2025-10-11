@@ -1,45 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-text color="medium" class="ion-padding">
-      Bienvenido de nuevo
-    </ion-text>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-page">
 
+  <div class="logo-container">
+    <img src="assets/icon/tinder-logo.png" alt="Tinder Logo" class="logo" />
+  </div>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <form (ngSubmit)="onLogin()">
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Correo</ion-label>
-        <ion-input 
-          type="email" 
-          [(ngModel)]="email" 
-          name="email" 
-          required>
-        </ion-input>
-      </ion-item>
+  <form (ngSubmit)="onLogin()" class="login-form">
+    <ion-item lines="full" class="input-item">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input 
+        type="email" 
+        [(ngModel)]="email" 
+        name="email" 
+        required>
+      </ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input 
-          type="password" 
-          [(ngModel)]="password" 
-          name="password" 
-          required>
-        </ion-input>
-      </ion-item>
-    </ion-list>
+    <ion-item lines="full" class="input-item">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input 
+        type="password" 
+        [(ngModel)]="password" 
+        name="password" 
+        required>
+      </ion-input>
+    </ion-item>
 
-    <ion-button expand="block" type="submit" [disabled]="!email || !password">
-      Sign In
-    </ion-button>
-
-    <div class="register-link ion-text-center ion-margin-top">
-      <a (click)="goToRegister()">Create an account</a>
+    <div class="link-container">
+      <a (click)="goToRegister()">Don't have an account?</a>
     </div>
+
+    <ion-button 
+      expand="block" 
+      type="submit" 
+      class="login-button"
+      [disabled]="!email || !password">
+      Log In
+    </ion-button>
   </form>
 </ion-content>

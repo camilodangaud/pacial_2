@@ -6,7 +6,7 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
-  standalone: false,
+  standalone: false,  
 })
 export class RegisterPage {
   name = '';
@@ -17,6 +17,7 @@ export class RegisterPage {
   country = '';
   city = '';
   gender = '';
+  passions: string[] = [];
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -26,27 +27,22 @@ export class RegisterPage {
       lastName: this.lastName,
       email: this.email,
       password: this.password,
-      birthDate: this.birthDate,
+      birthDate: this.birthDate || new Date().toISOString(),
       country: this.country,
       city: this.city,
       gender: this.gender,
       showGenderProfile: true,
-      passions: [
-        { category: 'Harry potter' },
-        { category: 'Music' },
-        { category: 'Video games' },
-        { category: 'Travel' },
-      ],
-      photos: ['/profile/name.jpg', '/profile/name.jpg'],
+      passions: this.passions.map(p => ({ category: p })),
+      photos: ['/profile/default.jpg'],
     };
 
     const ok = await this.authService.register(user);
 
     if (ok) {
-      alert('Usuario registrado con éxito');
+      alert('✅ Usuario registrado con éxito');
       this.router.navigate(['/login']);
     } else {
-      alert('Error al registrar el usuario');
+      alert('❌ Error al registrar usuario');
     }
   }
 

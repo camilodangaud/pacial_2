@@ -1,63 +1,81 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Registro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="tinder-bg">
 
-<ion-content class="ion-padding">
-  <form (ngSubmit)="onRegister()">
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input [(ngModel)]="name" name="name" required></ion-input>
-      </ion-item>
+  <div class="tinder-logo">
+    <img src="assets/icon/tinder-logo.png" alt="Tinder Logo" />
+  </div>
 
-      <ion-item>
-        <ion-label position="floating">Apellido</ion-label>
-        <ion-input [(ngModel)]="lastName" name="lastName" required></ion-input>
-      </ion-item>
+  <h2 class="title">My Information</h2>
 
-      <ion-item>
-        <ion-label position="floating">Correo</ion-label>
-        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
-      </ion-item>
+  <form (ngSubmit)="onRegister()" class="register-form">
 
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
-      </ion-item>
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">First name</ion-label>
+      <ion-input [(ngModel)]="name" name="name" required></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Año de nacimiento</ion-label>
-        <ion-datetime display-format="YYYY" picker-format="YYYY" [(ngModel)]="birthDate" name="birthDate"></ion-datetime>
-      </ion-item>
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input [(ngModel)]="lastName" name="lastName" required></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>País</ion-label>
-        <ion-input [(ngModel)]="country" name="country"></ion-input>
-      </ion-item>
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Ciudad</ion-label>
-        <ion-input [(ngModel)]="city" name="city"></ion-input>
-      </ion-item>
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Género</ion-label>
-        <ion-select [(ngModel)]="gender" name="gender" required>
-          <ion-select-option value="female">Femenino</ion-select-option>
-          <ion-select-option value="male">Masculino</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Birth year</ion-label>
+      <ion-datetime
+        presentation="year"
+        [(ngModel)]="birthDate"
+        name="birthDate"
+        placeholder="Select year">
+      </ion-datetime>
+    </ion-item>
 
-    <ion-button expand="block" type="submit"
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Country</ion-label>
+      <ion-input [(ngModel)]="country" name="country"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">City</ion-label>
+      <ion-input [(ngModel)]="city" name="city"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Gender</ion-label>
+      <ion-select [(ngModel)]="gender" name="gender" interface="popover">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="none" class="input-item">
+      <ion-label position="floating">Passions</ion-label>
+      <ion-select multiple="true" [(ngModel)]="passions" name="passions">
+        <ion-select-option value="Music">Music</ion-select-option>
+        <ion-select-option value="Movies">Movies</ion-select-option>
+        <ion-select-option value="Travel">Travel</ion-select-option>
+        <ion-select-option value="Sports">Sports</ion-select-option>
+        <ion-select-option value="Cooking">Cooking</ion-select-option>
+        <ion-select-option value="Art">Art</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="continue-btn"
       [disabled]="!name || !lastName || !email || !password">
-      Registrarse
+      Continue
     </ion-button>
 
     <div class="ion-text-center ion-margin-top">
-      <a (click)="goToLogin()">¿Ya tienes cuenta? Inicia sesión</a>
+      <a (click)="goToLogin()" class="login-link">Already have an account?</a>
     </div>
   </form>
 </ion-content>
